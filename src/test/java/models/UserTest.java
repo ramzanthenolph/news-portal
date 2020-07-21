@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class UserTest {
     @Rule
-    public DatabaRule databaseRule = new DatabaseRule();
+    public DatabaseRule databaseRule = new DatabaseRule();
 
     private User newUser(){
         return new User("Kanye West","Manager","Artist","Media");
