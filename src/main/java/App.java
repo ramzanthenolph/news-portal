@@ -25,5 +25,9 @@ public class App {
             port = 4567;
         }
         port(port);
+
+        //departments
+
+        get("/departments","application/json",(request, response) -> gson.toJson(deptDao.allDepartments()));
     }
 }
