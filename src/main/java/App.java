@@ -96,6 +96,21 @@ public class App {
             }
         });
 
+        //.....user
+
+        get("/users","application/json",(request, response) -> gson.toJson(userDao.allUsers()));
+
+        get("/users/:id","application/json",(request, response) -> {
+            int userId = Integer.parseInt(request.params("userId"));
+            User foundUser = userDao.findById(userId);
+            if (foundUser != null) {
+                return gson.toJson(userDao.findById(userId));
+            }
+            else {
+                return "{\"Error 404!\":\"User not found.\"}";
+            }
+        });
+
         
     }
 }
