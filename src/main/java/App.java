@@ -119,5 +119,11 @@ public class App {
             int newsId = Integer.parseInt(request.params("newsId"));
             return gson.toJson(newsDao.findById(newsId));
         });
+
+        //...filters
+
+        after((req, res) ->{
+            res.type("application/json");
+        });
     }
 }
