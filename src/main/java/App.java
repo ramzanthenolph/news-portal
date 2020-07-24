@@ -111,6 +111,13 @@ public class App {
             }
         });
 
-        
+        //.....news
+
+        get("/","application/json",(request, response) -> gson.toJson(newsDao.allNews()));
+
+        get("/news/:id","application/json",(request, response) -> {
+            int newsId = Integer.parseInt(request.params("newsId"));
+            return gson.toJson(newsDao.findById(newsId));
+        });
     }
 }
